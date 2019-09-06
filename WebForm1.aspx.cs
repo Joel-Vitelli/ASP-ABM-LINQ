@@ -52,5 +52,30 @@ namespace LINQ_APP
             }
             GetData();
         }
+
+        protected void btnUpdate_Click(object sender, EventArgs e)
+        {
+            using (SampleDataContext dbContex = new SampleDataContext())
+            {
+
+                Employees employee = dbContex.Employees.SingleOrDefault(x => x.EmployeeID == 20);
+                employee.PostalCode = "6650";
+                dbContex.SubmitChanges();
+            }
+            GetData();
+
+        }
+
+        protected void btnDelete_Click(object sender, EventArgs e)
+        {
+            using (SampleDataContext dbContex = new SampleDataContext())
+            {
+
+                Employees employee = dbContex.Employees.SingleOrDefault(x => x.EmployeeID == 20);
+                dbContex.Employees.DeleteOnSubmit(employee);
+                dbContex.SubmitChanges();
+            }
+            GetData();
+        }
     }
 }

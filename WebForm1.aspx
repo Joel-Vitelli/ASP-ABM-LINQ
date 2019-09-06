@@ -21,6 +21,10 @@
             <asp:Button ID="btnInsert" runat="server" OnClick="btnInsert_Click" Text="Insert" />
 
 
+            <asp:Button ID="btnUpdate" runat="server" OnClick="btnUpdate_Click" Text="Update" />
+            <asp:Button ID="btnDelete" runat="server" OnClick="btnDelete_Click" Text="Delete" />
+
+
         </div>
     </form>
 </body>
