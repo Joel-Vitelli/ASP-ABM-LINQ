@@ -66,6 +66,9 @@
       <Association Name="Employees_Orders" Member="Orders" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="Orders" />
       <Association Name="Employees_Employees" Member="Employees1" ThisKey="ReportsTo" OtherKey="EmployeeID" Type="Employees" IsForeignKey="true" />
     </Type>
+    <InsertFunction FunctionId="FunctionId1" />
+    <UpdateFunction FunctionId="FunctionId2" />
+    <DeleteFunction FunctionId="FunctionId3" />
   </Table>
   <Table Name="dbo.EmployeeTerritories" Member="EmployeeTerritories">
     <Type Name="EmployeeTerritories">
@@ -181,5 +184,14 @@
       <Column Name="Extension" Type="System.String" DbType="NVarChar(4)" CanBeNull="true" />
       <Column Name="PostalCode" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
     </ElementType>
+  </Function>
+  <Function Id="FunctionId3" Name="dbo.DeleteEmployee" Method="DeleteEmployee">
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Id="FunctionId1" Name="dbo.InsertEmployee" Method="InsertEmployee">
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Id="FunctionId2" Name="dbo.UpdateEmployee" Method="UpdateEmployee">
+    <Return Type="System.Int32" />
   </Function>
 </Database>

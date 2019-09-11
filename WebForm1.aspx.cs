@@ -32,51 +32,23 @@ namespace LINQ_APP
         protected void btnInsert_Click(object sender, EventArgs e)
         {
 
-            using (SampleDataContext dbContex = new SampleDataContext())
-            {
-                Employees newEmployee = new Employees
-                {
-                    FirstName = "Pamela",
-                    LastName = "Vazques",
-                    Title = "Costurera",
-                    TitleOfCourtesy = "Sra.",
-                    Address = "Echeverria 158",
-                    City = "Mendoza",
-                    Region = "Cuyo",
-                    PostalCode = "5598",
-                    Country = "Argentina",
-                    HomePhone = "4369852",
-                    Extension = "SDFW",
-                    Notes = "Nada we"
-                };
-                dbContex.Employees.InsertOnSubmit(newEmployee);
-                dbContex.SubmitChanges();
-            }
+            SampleDataContext dbContext = new SampleDataContext();
+            dbContext.InsertEmployee();
             GetData();
         }
 
         protected void btnUpdate_Click(object sender, EventArgs e)
         {
-            using (SampleDataContext dbContex = new SampleDataContext())
-            {
-
-                Employees employee = dbContex.Employees.SingleOrDefault(x => x.EmployeeID == 20);
-                employee.PostalCode = "6650";
-                dbContex.SubmitChanges();
-            }
+            SampleDataContext dbContext = new SampleDataContext();
+            dbContext.UpdateEmployee();
             GetData();
 
         }
 
         protected void btnDelete_Click(object sender, EventArgs e)
         {
-            using (SampleDataContext dbContex = new SampleDataContext())
-            {
-
-                Employees employee = dbContex.Employees.SingleOrDefault(x => x.EmployeeID == 20);
-                dbContex.Employees.DeleteOnSubmit(employee);
-                dbContex.SubmitChanges();
-            }
+            SampleDataContext dbContext = new SampleDataContext();
+            dbContext.DeleteEmployee();            
             GetData();
         }
     }

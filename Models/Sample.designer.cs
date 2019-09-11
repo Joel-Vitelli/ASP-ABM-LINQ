@@ -42,9 +42,6 @@ namespace LINQ_APP.Models
     partial void InsertCustomers(Customers instance);
     partial void UpdateCustomers(Customers instance);
     partial void DeleteCustomers(Customers instance);
-    partial void InsertEmployees(Employees instance);
-    partial void UpdateEmployees(Employees instance);
-    partial void DeleteEmployees(Employees instance);
     partial void InsertEmployeeTerritories(EmployeeTerritories instance);
     partial void UpdateEmployeeTerritories(EmployeeTerritories instance);
     partial void DeleteEmployeeTerritories(EmployeeTerritories instance);
@@ -205,11 +202,47 @@ namespace LINQ_APP.Models
 			}
 		}
 		
+		private void InsertEmployees(Employees obj)
+		{
+			this.InsertEmployee();
+		}
+		
+		private void UpdateEmployees(Employees obj)
+		{
+			this.UpdateEmployee();
+		}
+		
+		private void DeleteEmployees(Employees obj)
+		{
+			this.DeleteEmployee();
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GetEmployee")]
 		public ISingleResult<GetEmployeeResult> GetEmployee()
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<GetEmployeeResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.DeleteEmployee")]
+		public int DeleteEmployee()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.InsertEmployee")]
+		public int InsertEmployee()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.UpdateEmployee")]
+		public int UpdateEmployee()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((int)(result.ReturnValue));
 		}
 	}
 	
