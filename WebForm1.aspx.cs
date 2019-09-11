@@ -18,7 +18,9 @@ namespace LINQ_APP
         private void GetData()
         {
             SampleDataContext dbContex = new SampleDataContext();
-            GridView1.DataSource = dbContex.Employees;
+
+            dbContex.Log = Response.Output;
+            GridView1.DataSource = dbContex.GetEmployee();
             GridView1.DataBind();
         }
 
